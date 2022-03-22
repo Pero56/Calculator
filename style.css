@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+button{
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+}
+
+.calc{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.keyboard{
+    /*border: 1px solid black;*/
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+    align-items: center;
+}
+
+.operators{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#screen{
+    width: 213px;
+    height: 100px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#screen p{
+    font-size: 30pt;
+}
+.operators button{
+    font-size: 30pt;
+}
+
+.equal button{
+    width: 105px;
+    height: 50px;
+    font-size: 30pt;
+}
+
+.display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
