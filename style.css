@@ -38,14 +38,14 @@ button{
     align-items: center;
 }
 
-#screen{
+.screen{
     width: 213px;
     height: 100px;
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    font-size: 30pt;
 }
 #screen p{
     font-size: 30pt;
