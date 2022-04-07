@@ -8,8 +8,14 @@ const numberButton = document.querySelectorAll(".numBtn");
 const display = document.querySelector(".screen");
 const operators = document.querySelectorAll(".oper");
 const equals = document.getElementById("equals");
+const clear = document.getElementById("clear");
+const del = document.getElementById("del");
+const pointBtn = document.getElementById("point");
 
-equals.addEventListener('click', () => evaluate())
+pointBtn.addEventListener('click', () => appendPoint());
+del.addEventListener('click', () => deleteNumber());
+clear.addEventListener('click', () => clearAll());
+equals.addEventListener('click', () => evaluate());
 numberButton.forEach((button) =>
     button.addEventListener('click', () => addNumber(button.textContent))
 );
@@ -17,12 +23,20 @@ operators.forEach((operator) =>
     operator.addEventListener('click', () => setOperator(operator.textContent))
 );
 
-function result(){
-    if(secondValue === null) secondValue = display.textContent;
-    displayValue = operate(firstValue, secondValue, currentOperation)
-    display.textContent = displayValue;
-    firstValue = displayValue;
+function deleteNumber(){
+    display.textContent = display.textContent
+    .toString()
+    .slice(0, -1)
 }
+
+function clearAll(){
+    display.textContent = '';
+    firstValue = null;
+    secondValue = null;
+    displayValue = null;
+    currentOperation = null;
+    resetInput = false;
+};
 
 function setOperator(operator){
     if(currentOperation !== null) evaluate()
@@ -43,15 +57,21 @@ function resetScreen(){
     resetInput = false;
 }
 
+function appendPoint() {
+    if (resetInput) resetScreen()
+    if (display.textContent === '')
+      display.textContent = '0'
+    if (display.textContent.includes('.')) return
+        display.textContent += '.'
+  }
+
 function evaluate(){
     if(currentOperation === null) return;
     secondValue = display.textContent;
-    console.log(firstValue, secondValue);
     displayValue = operate(firstValue, secondValue, currentOperation)
     display.textContent = displayValue;
     firstValue = displayValue;
     secondValue = null;
-    console.log(firstValue, secondValue);
     currentOperation = null;
 }
 
